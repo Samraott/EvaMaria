@@ -724,7 +724,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         fmsg = await message.reply_photo(photo='https://te.legra.ph/file/acc52241c4e78afad71a8.jpg', caption=cap, reply_markup=InlineKeyboardMarkup(btn))# fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn)) Use This code if you need only caption
     
-    await asyncio.sleep(DELETE_TIME)
+    await asyncio.sleep(600)
     await fmsg.delete()
     await msg.delete()
     if spoll:
