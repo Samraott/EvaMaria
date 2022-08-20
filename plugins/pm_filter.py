@@ -1,6 +1,7 @@
 # Kanged From @TroJanZheX
 import asyncio
 import re
+import os
 import ast
 import math
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
@@ -25,6 +26,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
+
+DELET_TIME = int(os.environ.get("DELET_TIME", "10")
 
 BUTTONS = {}
 SPELL_CHECK = {}
@@ -718,15 +721,24 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"Here is what i found for your query {search}"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+           mkn = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
+           await asyncio.sleep(DELET_TIME)
+           await mkn.delete()
+           await msg.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            newt = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(DELET_TIME)
+            await newt.delete()
+            await msg.delete()
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            orr = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(DELET_TIME)
+            await orr.delete()
+            await msg.delete()
     else:
         await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
@@ -783,9 +795,11 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+    mrhh = await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
                     reply_markup=InlineKeyboardMarkup(btn))
-
+    await asyncio.sleep(DELET_TIME)
+    await mrhh.delete()
+    await msg.delete()
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
@@ -804,31 +818,40 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)                            
                         else:
                             button = eval(btn)
-                            await client.send_message(
+                            mkn = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(DELET_TIME)
+                            await mkn.delete()
+                            await message.delete()
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        jack = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(DELET_TIME)
+                        await jack.delete()
+                        await message.delete()
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        brot = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(DELET_TIME)
+                        await brot.delete()
+                        await message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
