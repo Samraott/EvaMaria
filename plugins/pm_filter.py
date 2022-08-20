@@ -144,7 +144,7 @@ async def advantage_spoll_choker(bot, query):
             k = await query.message.edit('This Movie Not Found In DataBase')
             await asyncio.sleep(10)
             await k.delete()
-
+            await query.delete()
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -760,6 +760,7 @@ async def advantage_spell_chok(msg):
         k = await msg.reply("I couldn't find any movie in that name.")
         await asyncio.sleep(8)
         await k.delete()
+        await msg.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -789,6 +790,7 @@ async def advantage_spell_chok(msg):
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
         await asyncio.sleep(8)
         await k.delete()
+        await msg.delete()
         return
     SPELL_CHECK[msg.id] = movielist
     btn = [[
@@ -802,7 +804,7 @@ async def advantage_spell_chok(msg):
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(DELET_TIME)
     await mrhh.delete()
-    
+    await msg.delete()
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
