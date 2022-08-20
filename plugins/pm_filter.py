@@ -822,7 +822,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             rockybai = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(5)
+                            await asyncio.sleep(DELET_TIME)
                             await rockybai.delete()
                             await message.delete()                            
                         else:
@@ -834,7 +834,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(5)
+                            await asyncio.sleep(DELET_TIME)
                             await mkn.delete()
                             await message.delete()
                     elif btn == "[]":
@@ -844,7 +844,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(5)
+                        await asyncio.sleep(DELET_TIME)
                         await jack.delete()
                         await message.delete()
                     else:
@@ -855,7 +855,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(5)
+                        await asyncio.sleep(DELET_TIME)
                         await brot.delete()
                         await message.delete()
                 except Exception as e:
