@@ -727,7 +727,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Here is what i found for your query {search}"
+        cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮 ☟</b>\n<b>@Movies_series_1159</b>\n<b>⚜ 𝙁𝙤𝙪𝙣𝙙𝙚𝙙 𝙍𝙚𝙨𝙪𝙡𝙩𝙨 𝙁𝙤𝙧 𝙔𝙤𝙪𝙧</b>\n<b>𝙍𝙚𝙦𝙪𝙚𝙨𝙩 💚</b>"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
@@ -740,9 +740,11 @@ async def auto_filter(client, msg, spoll=False):
             logger.exception(e)
             await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-    if spoll:
-        await msg.message.delete()
+        Ansh = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        await asyncio.sleep(DELETE_TIME)
+        await Ansh.delete()
+        await message.delete()
+        return
 
 
 async def advantage_spell_chok(msg):
@@ -755,7 +757,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
+        await asyncio.sleep(DELETE_TIME)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -784,7 +786,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(8)
+        await asyncio.sleep(DELETE_TIME)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -812,15 +814,14 @@ async def manual_filters(client, message, text=False):
             if reply_text:
                 reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
 
-            if btn is not None:
+             if btn is not None:
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await client.send_message(
-                                group_id, 
-                                reply_text, 
-                                disable_web_page_preview=True,
-                                reply_to_message_id=reply_id)
+                            dmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            await asyncio.sleep(DELETE_TIME)
+                            await dmsg.delete() 
+                            await msg.delete()
                         else:
                             button = eval(btn)
                             await client.send_message(
@@ -830,6 +831,9 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
+                            await asyncio.sleep(DELETE_TIME)
+                            await dmsg.delete()
+                            await msg.delete()
                     elif btn == "[]":
                         await client.send_cached_media(
                             group_id,
@@ -837,6 +841,9 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(DELETE_TIME)
+                        await dmsg.delete()
+                        await msg.delete()
                     else:
                         button = eval(btn)
                         await message.reply_cached_media(
@@ -845,6 +852,9 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+                        await asyncio.sleep(DELETE_TIME)
+                        await dmsg.delete()
+                        await msg.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
