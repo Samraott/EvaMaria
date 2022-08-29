@@ -697,7 +697,6 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [InlineKeyboardButton(text="☞ Nᴇxᴛ", callback_data=f"next_{req}_{key}_{offset}")]
         )
-        if BUTTON:
             btn.append([InlineKeyboardButton(text=f"✮ Pᴀɢᴇs 1/{math.ceil(int(total_results) / 10)} ✮", callback_data="pages")]
         )
     else:
