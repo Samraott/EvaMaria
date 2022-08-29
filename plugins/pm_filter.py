@@ -82,6 +82,16 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+        
+    btn.insert(0,
+            [
+                InlineKeyboardButton("🎭 ᴍᴏᴠɪᴇs", url="https://t.me/moviescrown"),
+                InlineKeyboardButton("📢 ᴄʜᴀɴɴᴇʟ", url="https://t.me/moviescrown")
+            ])
+
+    btn.insert(0, [
+        InlineKeyboardButton("📥 ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url="https://t.me/how_to_download_movie_from_bot/5")#unknown
+    ])    
 
     if 0 < offset <= 10:
         off_set = 0
@@ -660,6 +670,16 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
+        
+    btn.insert(0,
+            [
+                InlineKeyboardButton("🎭 ᴍᴏᴠɪᴇs ᴄᴏʟʟᴇᴄᴛɪᴏɴ", url="https://t.me/moviescrown"),
+                InlineKeyboardButton("💬 ᴍᴏᴠɪᴇ ʀᴇǫ", url="https://t.me/moviescrown")
+            ])
+
+    btn.insert(0, [
+        InlineKeyboardButton("📥 ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url="https://t.me/how_to_download_movie_from_bot/5")
+    ])    
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
