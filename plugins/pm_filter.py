@@ -81,8 +81,8 @@ async def next_page(bot, query):
         
     btn.insert(0,
             [
-                InlineKeyboardButton("🎭 ᴍᴏᴠɪᴇs", url="https://t.me/moviescrown"),
-                InlineKeyboardButton("📢 ᴄʜᴀɴɴᴇʟ", url="https://t.me/moviescrown")
+                InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
+                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/65")
             ])
 
     btn.insert(0, [
@@ -668,8 +668,8 @@ async def auto_filter(client, msg, spoll=False):
         
     btn.insert(0,
             [
-                InlineKeyboardButton("🎭 ᴍᴏᴠɪᴇs ᴄᴏʟʟᴇᴄᴛɪᴏɴ", url="https://t.me/moviescrown"),
-                InlineKeyboardButton("💬 ᴍᴏᴠɪᴇ ʀᴇǫ", url="https://t.me/moviescrown")
+                InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
+                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/65")
             ])
 
     btn.insert(0, [
