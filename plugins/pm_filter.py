@@ -26,6 +26,8 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+DELET_TIME = int(os.environ.get("DELET_TIME", "10"))
+
 BUTTONS = {}
 SPELL_CHECK = {}
 
