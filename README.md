@@ -48,7 +48,9 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/EvamariaTG/evamaria/blob/master/info.py) for more
 
+## Deploy To Railway
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/G_D7qh?referralCode=Hb9iCx)
 ## Deploy
 You can deploy this bot anywhere.
 
