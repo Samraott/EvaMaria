@@ -82,7 +82,7 @@ async def next_page(bot, query):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/65")
+                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/59")
             ])
 
     btn.insert(0, [
