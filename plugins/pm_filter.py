@@ -90,7 +90,7 @@ async def next_page(bot, query):
     ])
     
     btn.insert(0, [
-        InlineKeyboardButton("📥 ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url="https://t.me/how_to_download_movie_from_bot/5")
+        InlineKeyboardButton("¸,ø¤º°` HOW TO DOWNLOAD `°º¤ø,¸", url="https://t.me/how_to_download_movie_from_bot/5")
     ])
 
     if 0 < offset <= 10:
@@ -687,7 +687,7 @@ async def auto_filter(client, msg, spoll=False):
     ])
     
     btn.insert(0, [
-        InlineKeyboardButton("📥 ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ 📥", url="https://t.me/how_to_download_movie_from_bot/5")
+        InlineKeyboardButton("¸,ø¤º°` HOW TO DOWNLOAD `°º¤ø,¸", url="https://t.me/how_to_download_movie_from_bot/5")
     ])
 
     if offset != "":
