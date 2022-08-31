@@ -736,25 +736,25 @@ async def auto_filter(client, msg, spoll=False):
         try:
            RAT = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(DELETE_TIME)
+           await asyncio.sleep(500)
            await RAT.delete()
            await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
            pic = imdb.get('poster')
            poster = pic.replace('.jpg', "._V1_UX360.jpg")
            NET = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(DELETE_TIME)
+           await asyncio.sleep(500)
            await NET.delete()
            await message.delete()
         except Exception as e:
            logger.exception(e)
            ROOT = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(DELETE_TIME)
+           await asyncio.sleep(500)
            await ROOT.delete()
            await message.delete()
     else:
         MKN = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(DELETE_TIME)
+        await asyncio.sleep(500)
         await MKN.delete()
         await message.delete()
     if spoll:
@@ -771,7 +771,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(DELETE_TIME)
+        await asyncio.sleep(400)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -800,7 +800,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(DELETE_TIME)
+        await asyncio.sleep(400)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -833,7 +833,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             dmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(DELETE_TIME)
+                            await asyncio.sleep(500)
                             await dmsg.delete() 
                             await msg.delete()
                         else:
@@ -845,7 +845,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(DELETE_TIME)
+                            await asyncio.sleep(500)
                             await dmsg.delete()
                             await msg.delete()
                     elif btn == "[]":
@@ -855,7 +855,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(DELETE_TIME)
+                        await asyncio.sleep(500)
                         await dmsg.delete()
                         await msg.delete()
                     else:
@@ -866,7 +866,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(DELETE_TIME)
+                        await asyncio.sleep(500)
                         await dmsg.delete()
                         await msg.delete()
                 except Exception as e:
