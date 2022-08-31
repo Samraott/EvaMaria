@@ -86,13 +86,10 @@ async def next_page(bot, query):
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("🅷🅾🆆 🆃🅾 🅳🅾🆆🅽🅻🅾🅰🅳", url="https://t.me/how_to_download_movie_from_bot/5")#unknown
+        InlineKeyboardButton("🅷🅾🆆 🆃🅾 🅳🅾🆆🅽🅻🅾🅰🅳", url="https://youtu.be/KAXxaB1j_dE")#unknown
     ])
     
-    btn.insert(0, [
-        InlineKeyboardButton("¸,ø¤º°` HOW TO DOWNLOAD `°º¤ø,¸", url="https://t.me/how_to_download_movie_from_bot/5")
-    ])
-
+    
     if 0 < offset <= 10:
         off_set = 0
     elif offset == 0:
@@ -683,13 +680,10 @@ async def auto_filter(client, msg, spoll=False):
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("🅷🅾🆆 🆃🅾 🅳🅾🆆🅽🅻🅾🅰🅳", url="https://t.me/how_to_download_movie_from_bot/5")
+        InlineKeyboardButton("🅷🅾🆆 🆃🅾 🅳🅾🆆🅽🅻🅾🅰🅳", url="https://youtu.be/KAXxaB1j_dE")
     ])
     
-    btn.insert(0, [
-        InlineKeyboardButton("¸,ø¤º°` HOW TO DOWNLOAD `°º¤ø,¸", url="https://t.me/how_to_download_movie_from_bot/5")
-    ])
-
+    
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
