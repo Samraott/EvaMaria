@@ -734,29 +734,17 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮 ☟</b>\n<b>@𝖒𝖔𝖛𝖎𝖊𝖘𝖈𝖗𝖔𝖜𝖓</b>\n<b>⚜ 𝙁𝙤𝙪𝙣𝙙𝙚𝙙 𝙍𝙚𝙨𝙪𝙡𝙩𝙨 𝙁𝙤𝙧 𝙔𝙤𝙪𝙧</b>\n<b>𝙍𝙚𝙦𝙪𝙚𝙨𝙩 💚</b>"
     if imdb and imdb.get('poster'):
         try:
-           RAT = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(500)
-           await RAT.delete()
-           await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-           pic = imdb.get('poster')
-           poster = pic.replace('.jpg', "._V1_UX360.jpg")
-           NET = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(500)
-           await NET.delete()
-           await message.delete()
+            pic = imdb.get('poster')
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
-           logger.exception(e)
-           ROOT = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-           await asyncio.sleep(500)
-           await ROOT.delete()
-           await message.delete()
+            logger.exception(e)
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        MKN = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(500)
-        await MKN.delete()
-        await message.delete()
+        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
 
