@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💝 [{get_size(file.file_size)}] 💖 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -73,7 +73,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💚 [{get_size(file.file_size)}] 💜 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -658,7 +658,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -667,7 +667,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"💖 [{get_size(file.file_size)}] 💝 {file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
+                    text=f"[{get_size(file.file_size)}]{file.file_name}", url=f"https://telegram.dog/{temp.U_NAME}?start=aNsH_{file.file_id}"
                 ),
             ]
             for file in files
@@ -676,7 +676,7 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/65")
+                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/59")
             ])
 
     btn.insert(0, [
@@ -731,7 +731,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮 ☟</b>\n<b>@𝖒𝖔𝖛𝖎𝖊𝖘𝖈𝖗𝖔𝖜𝖓</b>\n<b>⚜ 𝙁𝙤𝙪𝙣𝙙𝙚𝙙 𝙍𝙚𝙨𝙪𝙡𝙩𝙨 𝙁𝙤𝙧 𝙔𝙤𝙪𝙧</b>\n<b>𝙍𝙚𝙦𝙪𝙚𝙨𝙩 💚</b>"
+        cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮 ☟</b>\n<b>@𝖒𝖔𝖛𝖎𝖊𝖘𝖈𝖗𝖔𝖜𝖓</b>\n<b>⚜ 𝙁𝙤𝙪𝙣𝙙𝙚𝙙 𝙍𝙚𝙨𝙪𝙡𝙩𝙨 𝙁𝙤𝙧 𝙔𝙤𝙪𝙧</b>\n<b>𝙍𝙚𝙦𝙪𝙚𝙨𝙩 {search} </b>"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
