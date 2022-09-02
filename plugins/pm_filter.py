@@ -82,7 +82,6 @@ async def next_page(bot, query):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/59")
             ])
 
     btn.insert(0, [
@@ -676,7 +675,6 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("📢 MONEY HIEST ALL", url="https://t.me/samraott1234/59")
             ])
 
     btn.insert(0, [
@@ -759,7 +757,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(400)
+        await asyncio.sleep(200)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -788,7 +786,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(400)
+        await asyncio.sleep(200)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
