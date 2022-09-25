@@ -757,7 +757,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(200)
+        await asyncio.sleep(180)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -786,7 +786,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(200)
+        await asyncio.sleep(180)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -819,7 +819,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             dmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(500)
+                            await asyncio.sleep(180)
                             await dmsg.delete() 
                             await msg.delete()
                         else:
@@ -831,7 +831,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(500)
+                            await asyncio.sleep(180)
                             await dmsg.delete()
                             await msg.delete()
                     elif btn == "[]":
@@ -841,7 +841,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(500)
+                        await asyncio.sleep(180)
                         await dmsg.delete()
                         await msg.delete()
                     else:
@@ -852,7 +852,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(500)
+                        await asyncio.sleep(180)
                         await dmsg.delete()
                         await msg.delete()
                 except Exception as e:
