@@ -735,23 +735,23 @@ async def auto_filter(client, msg, spoll=False):
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(50)
+            await asyncio.sleep(DELETE_TIME)
             await hehe.delete()
             #await message.reply_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️", disable_notification = True)
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(50)
+            await asyncio.sleep(DELETE_TIME)
             #await hmm.edit_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️", disable_notification = True)
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_photo(photo="https://telegra.ph/file/f0637f3e2574fd6594a3f.jpg", caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(50)
+            await asyncio.sleep(DELETE_TIME)
             #await fek.edit_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️")
     else:
         fuk = await message.reply_photo(photo="https://telegra.ph/file/f0637f3e2574fd6594a3f.jpg", caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(50)
+        await asyncio.sleep(DELETE_TIME)
         await fuk.delete()
         #await message.reply_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️")
 
@@ -766,7 +766,7 @@ async def advantage_spell_chok(msg):
     gs_parsed = []
     if not g_s:
         k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(50)
+        await asyncio.sleep(DELETE_TIME)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -795,7 +795,7 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(50)
+        await asyncio.sleep(DELETE_TIME)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -828,7 +828,7 @@ async def manual_filters(client, message, text=False):
                     if fileid == "None":
                         if btn == "[]":
                             dmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
-                            await asyncio.sleep(50)
+                            await asyncio.sleep(DELETE_TIME)
                             await dmsg.delete() 
                             await msg.delete()
                         else:
@@ -840,7 +840,7 @@ async def manual_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(50)
+                            await asyncio.sleep(DELETE_TIME)
                             await dmsg.delete()
                             await msg.delete()
                     elif btn == "[]":
@@ -850,7 +850,7 @@ async def manual_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(50)
+                        await asyncio.sleep(DELETE_TIME)
                         await dmsg.delete()
                         await msg.delete()
                     else:
@@ -861,7 +861,7 @@ async def manual_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(50)
+                        await asyncio.sleep(DELETE_TIME)
                         await dmsg.delete()
                         await msg.delete()
                 except Exception as e:
