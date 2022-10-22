@@ -82,7 +82,7 @@ async def next_page(bot, query):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("🔞 18+", url="https://t.me/+PguX5D1zx6o4NjA1")
+                InlineKeyboardButton("🔞 18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
             ])
 
     btn.insert(0, [
@@ -676,7 +676,7 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(0,
             [
                 InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("🔞 18+", url="https://t.me/+PguX5D1zx6o4NjA1")
+                InlineKeyboardButton("🔞 18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
             ])
 
     btn.insert(0, [
