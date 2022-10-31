@@ -81,12 +81,12 @@ async def next_page(bot, query):
         
     btn.insert(0,
             [
-                InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("🔞 18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
+                InlineKeyboardButton("WEB SERIES", url="https://t.me/samraott1234"),
+                InlineKeyboardButton("SEX", url="https://t.me/+RbGkJSzAdzM5N2Rl")
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("👉HOW 2 DOWNLOAD👈", url="https://youtu.be/KAXxaB1j_dE")#unknown
+        InlineKeyboardButton("DOWNLOAD KAISE KAREIN", url="https://youtu.be/KAXxaB1j_dE")#unknown
     ])
     
     
@@ -675,12 +675,12 @@ async def auto_filter(client, msg, spoll=False):
         
     btn.insert(0,
             [
-                InlineKeyboardButton("🎭 KGF ALL", url="https://t.me/samraott1234/65"),
-                InlineKeyboardButton("🔞 18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
+                InlineKeyboardButton("WEB SERIES", url="https://t.me/samraott1234"),
+                InlineKeyboardButton("SEX", url="https://t.me/+RbGkJSzAdzM5N2Rl")
             ])
 
     btn.insert(0, [
-        InlineKeyboardButton("👉HOW 2 DOWNLOAD👈", url="https://youtu.be/KAXxaB1j_dE")
+        InlineKeyboardButton("DOWNLOAD KAISE KAREIN", url="https://youtu.be/KAXxaB1j_dE")
     ])
     
     
@@ -731,7 +731,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮: {message.from_user.mention}</b>\n<b>© Powered by: <a href='https://t.me/moviescrown'>{message.chat.title}</a></b>\n\n<b>✍️ </b>"
+        cap = f"<b>✪ {search} </b><b>𝙐𝙥𝙡𝙤𝙖𝙙𝙚𝙙 𝘽𝙮: {message.from_user.mention}</b>\n<b>© Powered by: <a href='https://t.me/moviescrown'>{message.chat.title}</a></b>\n\n<b> </b>"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
