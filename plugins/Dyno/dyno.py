@@ -2,7 +2,6 @@ import os
 import math
 import time
 from info import ADMINS
-import heroku3
 import requests
 from pyrogram import Client, filters
 from database.users_chats_db import db
