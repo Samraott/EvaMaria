@@ -82,6 +82,17 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+        
+    btn.insert(0,
+            [
+                InlineKeyboardButton("WEB SERIES", url="https://t.me/samraott1234"),
+                InlineKeyboardButton("18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
+            ])
+
+    btn.insert(0, [
+        InlineKeyboardButton("👉KAISE KAREIN DOWNLOAD👈", url="https://youtu.be/KAXxaB1j_dE")
+    ])
+    
 
     if 0 < offset <= 10:
         off_set = 0
@@ -660,6 +671,17 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
+        
+    btn.insert(0,
+            [
+                InlineKeyboardButton("WEB SERIES", url="https://t.me/samraott1234"),
+                InlineKeyboardButton("18+", url="https://t.me/+RbGkJSzAdzM5N2Rl")
+            ])
+
+    btn.insert(0, [
+        InlineKeyboardButton("👉KAISE KAREIN DOWNLOAD👈", url="https://youtu.be/KAXxaB1j_dE")
+    ])
+    
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
@@ -708,22 +730,30 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Here is what i found for your query {search}"
+        cap = f"<b>🎬 Title:</b> {search}\n\n<b>👥 Requested by: {message.from_user.mention}</b>\n<b>© Powered by: <a href='https://t.me/+tEMyOChRE1NmZmI1'.</s>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
-                                      reply_markup=InlineKeyboardMarkup(btn))
+            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(IMDB_DELET_TIME)
+            await hehe.delete()
+            #await message.reply_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️", disable_notification = True)
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            hmm = await message.reply_photo(photo=poster, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(IMDB_DELET_TIME)
+            #await hmm.edit_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️", disable_notification = True)
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            fek = await message.reply_photo(photo="https://telegra.ph/file/54ed5184d55258df3c7c5.jpg", caption=cap, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(IMDB_DELET_TIME)
+            #await fek.edit_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️")
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        fuk = await message.reply_photo(photo="https://telegra.ph/file/54ed5184d55258df3c7c5.jpg.jpg", caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
-        await msg.message.delete()
+        await asyncio.sleep(IMDB_DELET_TIME)
+        await fuk.delete()
+        #await message.reply_text(text=f"⚙️ Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️")
 
 
 async def advantage_spell_chok(msg):
